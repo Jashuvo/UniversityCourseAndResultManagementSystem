@@ -1,0 +1,67 @@
+﻿@model UniversityCourseAndResultManagementApp.Models.Department
+@{
+    ViewBag.Title = "SaveDepartment";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width"/>
+    <title>Save</title>
+    <link href="~/Content/Site.css" rel="stylesheet"/>
+    <style>
+        .field-validation-error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+<h3>Department</h3>
+<div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+
+
+        <li>@Html.ActionLink("Save Department", "SaveDepartment", "Department")</li>
+        <li>@Html.ActionLink("View Department", "ViewDepartment", "Department")</li>
+
+        <li>@Html.ActionLink("Save Teacher", "SaveTeacher", "Department")</li>
+        
+    </ul>
+
+</div>
+<div>
+    @using (Html.BeginForm())
+    {
+        <fieldset>
+            <legend>Save Department</legend>
+            <table>
+                <tr>
+                    <td> @Html.LabelFor(m => m.Code) </td>
+                    <td>@Html.TextBoxFor(m => m.Code)</td>
+                    <td>@Html.ValidationMessageFor(m => m.Code)</td>
+                </tr>
+                <tr>
+                    <td> @Html.LabelFor(m => m.Name) </td>
+                    <td>@Html.TextBoxFor(m => m.Name)</td>
+                    <td>@Html.ValidationMessageFor(m => m.Name)</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td> <input type="submit" value="Save"/></td>
+                </tr>
+
+            </table>
+            <label>@ViewBag.msg</label>
+        </fieldset>
+    }
+</div>
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+
+<script src="~/Scripts/jquery.validate.js"></script>
+
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+
+</body>
+</html>
